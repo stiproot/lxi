@@ -1,0 +1,25 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore-actorstate
+scopes:
+  - lxi-ui-api
+  - lxi-embeddings-api
+  - lxi-workflows-api
+spec:
+  type: state.mongodb
+  version: v1
+  initTimeout: 5m
+  metadata:
+  - name: host
+    value: "mongo-lxi:27017"
+  - name: databaseName
+    value: "lxi"
+  - name: collectionName
+    value: "actorstate"
+  - name: keyPrefix
+    value: "none"
+  - name: params
+    value: "?authSource=admin&replicaSet=rs0&directConnection=true"
+  - name: actorStateStore
+    value: "true"

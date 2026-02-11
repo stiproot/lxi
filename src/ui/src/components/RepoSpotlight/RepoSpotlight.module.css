@@ -1,0 +1,96 @@
+/* src/components/RepoSpotlight/RepoSpotlight.module.css */
+:root {
+  --icon-color: #36454f; /* Default icon color for light mode */
+  --dimmed-text-color: #6b7280; /* Default dimmed text color for light mode */
+}
+
+[data-theme='dark'] {
+  --icon-color: #f0f4f8; /* Icon color for dark mode */
+  --dimmed-text-color: #9ca3af; /* Dimmed text color for dark mode */
+}
+
+.repoSpotlightButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border: 1px solid var(--mantine-color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--mantine-color-background);
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.repoSpotlightButton:hover {
+  background-color: var(--mantine-color-hover);
+}
+
+.repoSpotlightButton:focus {
+  outline: none;
+}
+
+.repoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.repoLabel {
+  flex: 1;
+  text-align: left;
+}
+
+.repoStatus {
+  margin-left: 8px;
+}
+
+/* Add border radius to the last item */
+.repoRow:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.statusWrapper {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.spinnerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.statusSpinner {
+  opacity: 0.8;
+}
+
+.successIcon {
+  color: var(--mantine-color-green-7);
+  transition: transform 0.2s ease;
+}
+
+.errorIcon {
+  color: var(--mantine-color-red-7);
+  transition: transform 0.2s ease;
+}
+
+.pendingIcon {
+  color: var(--mantine-color-gray-6);
+  transition: transform 0.2s ease;
+}
+
+.successIcon:hover,
+.errorIcon:hover,
+.pendingIcon:hover {
+  transform: scale(1.1);
+}

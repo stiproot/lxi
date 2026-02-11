@@ -1,0 +1,102 @@
+/* Base container */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+/* Chat container styles */
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow-y: auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Active chat container */
+.chatContainer:has(> *) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Message input styles */
+.messageInputContainer {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* States */
+.container:not(.hasMessages) {
+  justify-content: center;
+}
+
+.hasMessages .chatContainer {
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.hasMessages .messageInputContainer {
+  max-width: 950px;
+}
+
+/* Participant container */
+.participantsContainer {
+  position: absolute;
+  top: -36px;
+  right: 12px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transform: translateY(-4px);
+}
+
+/* Participant interactions */
+.participantButton,
+.participantAvatar,
+.participantIndicator,
+.addParticipantButton {
+  transition: transform 0.2s ease;
+}
+
+.participantButton:hover,
+.participantAvatar:hover,
+.participantIndicator:hover {
+  transform: scale(1.05);
+}
+
+.addParticipantButton:hover {
+  transform: scale(1.1);
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.5rem 1rem;
+  }
+
+  .messageInputContainer {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .participantsContainer {
+    transform: translateY(-2px);
+  }
+}

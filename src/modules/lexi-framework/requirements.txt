@@ -1,0 +1,3 @@
+environs
+pydantic
+dapr>=1.13.0a,<1.14.0

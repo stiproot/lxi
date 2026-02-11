@@ -1,0 +1,78 @@
+/* src/FeatureCard.module.css */
+:root {
+  --icon-color: #36454f; /* Default icon color for light mode */
+  --title-color: #36454f; /* Default title color for light mode */
+  --paper-background: hsla(0deg, 0%, 100%, 0.8); /* Light background with slightly higher opacity */
+  --paper-shadow: inset 2px 4px 16px hsla(210deg, 50%, 85%, 0.3); /* Light blue shadow */
+  --paper-border: 1.5px solid rgb(176, 196, 215); /* Light blue border */
+}
+
+[data-theme='dark'] {
+  --icon-color: #f0f4f8; /* Icon color for dark mode */
+  --title-color: #f0f4f8; /* Title color for dark mode */
+  --paper-background: hsla(0deg, 0%, 20%, 0.8); /* Dark background with slightly higher opacity */
+  --paper-shadow: inset 2px 4px 16px hsla(210deg, 50%, 15%, 0.3); /* Dark blue shadow */
+  --paper-border: 1.5px solid rgb(54, 63, 71); /* Dark blue border */
+}
+
+.card {
+  /* max-width: 300px; */
+  margin: 0 auto;
+  background-color: transparent;
+  box-shadow: none;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  /* padding: 1rem 1rem; */
+}
+
+.icon {
+  color: var(--icon-color);
+  size: 20px;
+}
+
+.title {
+  color: var(--title-color);
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.paper {
+  margin-bottom: 0.5rem;
+  backdrop-filter: blur(50px);
+  background: transparent;
+  box-shadow: var(--paper-shadow);
+  border: var(--paper-border);
+}
+
+.text {
+  color: var(--title-color);
+}
+
+@media (max-width: 62em) {
+  .card {
+    max-width: 100%;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .card {
+    max-width: 100%;
+    padding: 1rem 0.5rem;
+  }
+}
+
+@media (max-width: 36em) {
+  .card {
+    padding: 0;
+  }
+  
+  .title {
+    font-size: 1rem;
+  }
+
+  .text {
+    font-size: 0.75rem;
+  }
+}

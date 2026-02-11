@@ -1,0 +1,12 @@
+{
+  "AzureDevOps": {
+    "Pat": "your-azure-devops-pat-token-here"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*"
+}

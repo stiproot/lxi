@@ -1,0 +1,50 @@
+/* src/components/MessageListSkeletons/MessageListSkeletons.module.css */
+.skeletonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100%;
+  width: 900px
+}
+
+.skeletonMessage {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.skeletonUser {
+  flex-direction: row-reverse;
+}
+
+.skeletonAI {
+  flex-direction: row;
+}
+
+.skeletonAvatar {
+  margin-top: 0px;
+  margin-inline: 16px;
+}
+
+.skeletonText {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  max-width: 600px;
+  margin-top: 4px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.skeletonMessage:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 1024px) {
+  .skeletonContainer {
+    width: 80%;
+  }
+}

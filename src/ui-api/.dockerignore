@@ -1,0 +1,52 @@
+**/.bak
+**/.classpath
+**/.dockerignore
+**/.env
+
+# Exclude Git files.
+**/.git
+**/.gitignore
+**/.gitattributes
+**/.project
+**/.settings
+**/.toolstarget
+**/.vs
+**/.vscode
+**/*.*proj.user
+**/*.dbmdl
+**/*.jfm
+**/azds.yaml
+**/bin
+**/charts
+**/docker-compose*
+**/Dockerfile*
+**/node_modules
+**/npm-debug.log
+**/obj
+**/values.dev.yaml
+**/*.log
+**/*.nupkg
+**/azure-pipelines*.yml
+
+# Exclude any local secrets files.
+**/*secrets*.yaml
+**/*secrets*.json
+
+# Exclude appsettings as config should be injected into running Containers. This would typically be done via ConfigMap and/or Secrets in Kubernetes.
+**/appsettings.Development.json
+
+# Exclude Helm scripts and artifacts.
+/.pipelines/helm
+
+# Windows tools that may exist in the repo.
+**/dbChef.exe
+**/nuget.exe
+# Exclude downloaded tools that may exist locally.
+/tools
+# But do not exclude the Linux dbChef binary which is used in DB builds.
+!/tools/dbChefPackage/tools/linux-x64
+
+# Misc
+/*.md
+/.devopsinsights
+/.editorconfig

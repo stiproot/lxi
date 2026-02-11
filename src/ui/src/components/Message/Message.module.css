@@ -1,0 +1,287 @@
+/* Theme Variables */
+:root {
+  --user-paper-bg: #fff; /* Default background color for user messages in light mode */
+  --user-text-color: #36454f; /* Default text color for user messages in light mode */
+  --ai-text-color: #36454f; /* Default text color for AI messages in light mode */
+  --user-bubble-bg: #fff;
+  --other-user-bubble-bg: #f0f1f3;
+  --other-user-text-color: #36454f;
+}
+
+[data-theme='dark'] {
+  --user-paper-bg: #5a5c64; /* Background color for user messages in dark mode */
+  --user-text-color: #E0E0E0; /* Text color for user messages in dark mode */
+  --ai-text-color: #E0E0E0; /* Text color for AI messages in dark mode */
+  --user-bubble-bg: #5a5c64;
+  --other-user-bubble-bg: #2C2E33;
+  --other-user-text-color: #E0E0E0;
+}
+
+/* Message Layout */
+.bubbleRow {
+  display: flex;
+  align-items: flex-start;
+  position: relative; /* Add this for timestamp positioning */
+  flex-direction: row; /* Change to row for horizontal layout */
+}
+
+.bubbleRow[data-sender='other'] {
+  gap: 12px;
+}
+
+.bubbleRow[data-sender='ai'] {
+  gap: 0px;
+}
+
+.messageGroup {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 1rem; /* Add spacing between message groups */
+}
+
+.messageGroup.currentUser {
+  margin-bottom: 0.5rem; /* Smaller margin between your own messages */
+}
+
+.bubbleWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 4px; /* Increased from 4px for more spacing */
+  position: relative; /* Keep this for timestamp positioning */
+}
+
+.bubbleContent {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Increased from 4px for more spacing */
+}
+
+/* Current User Message Styles */
+.currentUser {
+  flex-direction: row-reverse;
+  /* max-width: 100%; */
+}
+
+.userBubble {
+  background-color: var(--user-bubble-bg);
+  color: var(--user-text-color);
+  margin-left: auto;
+  max-width: 60%;
+  padding: 8px 14px;
+  border-radius: 16px;
+}
+
+.userBubble p {
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Other User Message Styles */
+[data-sender='other'] .bubbleWrapper {
+  margin-left: 0;
+  width: calc(100% - 64px);
+}
+
+.otherUserBubble {
+  display: flex;
+  align-items: center;
+  background-color: var(--other-user-bubble-bg);
+  color: var(--other-user-text-color);
+  border-radius: 16px;
+  max-width: 70%;
+  min-height: 38px;
+  padding: 8px 14px;
+  margin-right: auto; /* Push bubble to the left */
+  margin-left: 0; /* Remove left auto margin */
+}
+
+.senderName {
+  text-align: left;
+  color: var(--mantine-color-dimmed);
+}
+
+/* Sender info styles */
+.senderInfo {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-left: 56px;
+}
+
+.otherUserTimestamp {
+  font-size: 0.7rem;
+  color: var(--mantine-color-dimmed);
+  opacity: 0.7;
+}
+
+/* Avatar Styles */
+.avatarWrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.avatarWrapper[data-sender='ai'] {
+  width: 30px;
+  height: 40px;
+  margin-top: 18px;
+}
+
+.avatarWrapper[data-sender='other'] {
+  width: 40px;
+  height: 40px;
+  margin-top: 0px;
+}
+
+.aiAvatar {
+  width: 24px;
+  height: 24px;
+  color: var(--ai-text-color);
+}
+
+.otherUserAvatar {
+  width: 40px;
+  height: 40px;
+}
+
+.otherUserName {
+  margin-left: 12px;
+  margin-bottom: -2px;
+  color: var(--mantine-color-dimmed);
+}
+
+/* AI Message Styles */
+.aiBubble {
+  background-color: transparent;
+  color: var(--ai-text-color);
+  padding: 0 12px; /* Increased bottom padding to make room for copy button */
+  width: 100%;
+  box-shadow: none;
+}
+
+[data-sender='ai'] .bubbleWrapper,
+.messageGroup:not(.currentUser) .bubbleWrapper {
+  margin-left: 0;
+  width: calc(100% - 52px); /* Account for avatar width + gap */
+}
+
+[data-sender='ai'] .bubbleWrapper {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  color: var(--mantine-color-dimmed);
+  opacity: 0.7;
+  position: relative; /* Change from absolute to relative */
+  margin: 0;
+  display: inline-block;
+}
+
+/* Current user's messages */
+.currentUser .bubble {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.currentUser .timestamp {
+  margin-top: 4px;
+  margin-right: 4px;
+  align-self: flex-end;
+}
+
+/* Other users' messages */
+.messageGroup:not(.currentUser) .timestamp {
+  margin-top: 4px;
+}
+
+/* AI messages */
+[data-sender='ai'] .timestamp {
+  margin-left: 42px !important; /* Smaller margin for AI avatar */
+}
+
+/* Timestamp adjustments */
+[data-sender='other'] .timestamp {
+  display: none;
+}
+
+/* Consecutive Message Styles */
+.consecutive {
+  margin-top: -0.5rem;
+}
+
+.consecutive .bubbleRow {
+  padding-left: 52px; /* For other users */
+}
+
+.consecutive.currentUser .bubbleRow {
+  padding-right: 0; /* For current user */
+}
+
+.consecutive .otherUserBubble,
+.consecutive .userBubble {
+  margin-top: 2px;
+}
+
+/* Adjust margins for consecutive messages */
+.messageGroup:not(.consecutive) {
+  margin-bottom: 1rem;
+}
+
+.messageGroup.consecutive {
+  margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* .bubble div:has(button) {
+  animation: fade-in 0.2s ease-in;
+} */
+
+.newMessage .userBubble,
+.newMessage .otherUserBubble {
+  animation: message-appear 0.2s ease-out;
+}
+
+.userBubble,
+.otherUserBubble {
+  position: relative;
+  animation: message-appear 0.2s ease-out;
+}
+
+.typingIndicatorContainer {
+  height: 58px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  min-width: 48px; /* Ensures a minimum width for the loader */
+}

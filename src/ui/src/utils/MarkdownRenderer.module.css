@@ -1,0 +1,191 @@
+:root {
+  --code-block-header-text-color: #36454f;
+  --code-header-background-color: #e5e4e4;
+  --mermaid-diagram-background-color: #FAFAFA;
+}
+
+[data-theme='dark'] {
+  --code-block-header-text-color: #b4b4b4;
+  --code-header-background-color: hsla(0deg, 0%, 20%, 0.8);
+  --mermaid-diagram-background-color: rgb(40, 44, 52);
+}
+
+.codeBlockContainer {
+  position: relative;
+  border-radius: 0.5rem;
+  border: 1px solid var(--code-header-background-color);
+  width: 100%;
+  max-width: 100%;
+}
+
+.codeBlockHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--code-block-header-text-color);
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  width: 100%;
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: var(--code-header-background-color);
+  position: relative; /* Establish a stacking context for z-index of children if needed */
+  z-index: 1; /* Ensure header is below the sticky button if they overlap */
+}
+
+.headerButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.copyCodeButton {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stickyCopyButton {
+  position: absolute;
+  bottom: 0;
+  right: 0.5rem;
+  z-index: 99;
+  height: 2.25rem;
+}
+
+.copyButtonMermaid {
+  right: 14rem;
+  top: 0rem;
+  height: 2.3rem;
+}
+
+.copyButtonContainer {
+  display: flex;
+  align-items: center;
+}
+
+.mermaidContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mermaid-diagram-background-color);
+  border: 1px solid var(--code-header-background-color);
+  border-radius: 0.5rem;
+  overflow: auto;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+.mermaidContainer .codeBlockContainer {
+  border: none;
+}
+
+.toggleViewButton {
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-family: 'Nunito Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.mermaid {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mermaid svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+code {
+  max-width: 100%;
+  overflow: auto;
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.fullscreen {
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--mermaid-diagram-background-color);
+  z-index: 1000;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.fullscreen .codeBlockHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+
+.fullscreen .mermaid {
+  flex: 1; /* Adjust this value if needed */
+  padding: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+  height: calc(100% - 3rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.fullscreen .stickyCopyButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.fullscreen .copyButtonMermaid {
+  right: 1rem;
+  top: 3rem;
+}
+
+.zoomControls {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 1002;
+}
+
+/* New styles for the sticky copy button in regular code blocks */
+.codeBlockStickyCopyButton {
+  position: sticky;
+  top: calc(60px + 0.5rem); /* Sticky position: 60px for main app header + 0.5rem spacing */
+  float: right; /* Positions it to the right */
+
+  margin-top: -1.8rem; /* Adjust this value to visually align. Pulls button up. */
+  margin-right: 0.5rem; /* Spacing from the right edge */
+  z-index: 50; /* Ensures it's above other scrolled content and the header */
+
+  background-color: var(--code-header-background-color);
+  border-radius: var(--mantine-radius-md);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+}

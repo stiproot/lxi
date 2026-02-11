@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: lxi_framework
+Version: 0.0.1
+Home-page: 
+Author: Simon Stipcich
+Author-email: usr@lxi.com
+License: MIT
+Keywords: python,package,beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+
+Common module for Lxi.

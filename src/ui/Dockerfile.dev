@@ -1,0 +1,32 @@
+# Use the latest Node.js image with Alpine Linux
+FROM node:22.15.1-alpine
+
+# Add trusted certificates
+COPY /trusted_certs.crt /usr/local/share/ca-certificates/trusted_certs.pem
+RUN apk add --no-cache ca-certificates && \
+    update-ca-certificates
+ENV NODE_EXTRA_CA_CERTS="/usr/local/share/ca-certificates/trusted_certs.pem"
+
+# Enable Corepack
+RUN corepack enable
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and yarn.lock
+COPY package.json yarn.lock ./
+
+# Clear Yarn cache
+RUN corepack yarn cache clean
+
+# Install all dependencies including devDependencies
+RUN corepack yarn install
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port Vite uses
+EXPOSE 8080
+
+# Command to run the development server
+CMD ["corepack", "yarn", "dev"]

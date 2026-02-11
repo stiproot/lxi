@@ -1,0 +1,67 @@
+services:
+  ##############################################
+  #                   RabbitMQ                 #
+  ##############################################
+  rabbitmq:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #                   MongoDB                  #
+  ##############################################
+  mongo:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #           Dapr placement service           #
+  ##############################################
+  placement:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #                   ChromaDB                 #
+  ##############################################
+  chromadb:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #                   QRY API                  #
+  ##############################################
+  lxi-qry-api:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #               EMBEDDINGS API               #
+  ##############################################
+  lxi-embeddings-api:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #     Workflows Api Service + Dapr sidecar   #
+  ##############################################
+  lxi-workflows-api:
+    platform: 'linux/arm64'
+
+  lxi-workflows-api-dapr:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #           UI API + Dapr sidecar            #
+  ##############################################
+  lxi-ui-api:
+    platform: 'linux/arm64'
+    build:
+      context: .
+      dockerfile: src/ui-api/Arm.Dockerfile
+      tags:
+        - ghcr.io/lxi/ui-api:dev
+      platforms:
+        - 'linux/arm64'
+
+  lxi-ui-api-dapr:
+    platform: 'linux/arm64'
+
+  ##############################################
+  #                    UI                      #
+  ##############################################
+  lxi-ui:
+    platform: 'linux/arm64'

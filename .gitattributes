@@ -1,0 +1,18 @@
+##################################################################
+# This file can be updated to latest via CodeInit as follows:
+##################################################################
+# Make sure your repo is checked into version control so you can
+# review any changes.
+# Install latest version of the template:
+#   codeinit install --template platform-common-gitattributes
+# Apply it in this repo's root directory:
+#   codeinit create --template platform-common-gitattributes
+##################################################################
+
+# We'll let Git's auto-detection algorithm infer if a file is text. If it is,
+# enforce LF line endings regardless of OS or git configurations.
+* text=auto eol=lf
+
+# Isolate binary files in case the auto-detection algorithm fails and
+# marks them as text files (which could brick them).
+*.{7z,gif,gz,jpg,jpeg,pdb,png,tar,tgz,webp,woff,woff2,zip} binary

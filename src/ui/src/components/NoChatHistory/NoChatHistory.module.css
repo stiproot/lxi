@@ -1,0 +1,156 @@
+/* src/components/NoChatHistory/NoChatHistory.module.css */
+.container {
+  text-align: center;
+  max-height: calc(100vh - 150px);
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+}
+
+.text {
+  color: var(--title-color);
+}
+
+.segmentedControl {
+  background-color: #f0f4f8e2;
+  box-shadow: var(--mantine-shadow-md);
+  overflow: hidden;
+  display: flex;
+  width: 600px;
+}
+
+[data-theme='dark'] .segmentedControl {
+  background-color: var(--mantine-color-dark-6);
+}
+
+.segmentedControl .mantine-SegmentedControl-indicator {
+  background-image: linear-gradient(
+    to right,
+    var(--mantine-color-pink-filled),
+    var(--mantine-color-orange-filled)
+  );
+  border-radius: 12px;
+}
+
+.segmentedControl .mantine-SegmentedControl-control::before {
+  display: none;
+}
+
+.segmentedControl .mantine-SegmentedControl-label,
+.segmentedControl .mantine-SegmentedControl-label:hover {
+  &[data-active] {
+    color: var(--mantine-color-white);
+  }
+}
+
+.segmentedControl .mantine-SegmentedControl-label {
+  color: var(--mantine-color-dark-6);
+}
+
+[data-theme='dark'] .segmentedControl .mantine-SegmentedControl-label {
+  color: var(--mantine-color-gray-1);
+}
+
+.content {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 62em) {
+  .segmentedControl {
+    width: 90%;
+  }
+}
+
+@media (max-width: 48em) {
+  .container {
+    padding: 1rem;
+  }
+
+  .text {
+    font-size: 0.875rem;
+  }
+
+  .highlight {
+    font-size: 1rem;
+  }
+
+  .segmentedControl {
+    font-size: 0.875rem;
+    width: 95%;
+  }
+
+  .segmentedControl span {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 36em) {
+  .container {
+    padding: 1rem;
+  }
+
+  .text {
+    font-size: 0.875rem;
+  }
+
+  .highlight {
+    font-size: 1rem;
+  }
+
+  .segmentedControl {
+    font-size: 0.75rem;
+    width: 100%;
+  }
+
+  .segmentedControl span {
+    font-size: 0.75rem;
+  }
+
+  .segmentedControl .mantine-SegmentedControl-label {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 30em) {
+  .container {
+    overflow: auto;
+    padding: 1rem;
+    padding-top: 0;
+  }
+
+  .text {
+    font-size: 0.75rem;
+  }
+
+  .highlight {
+    font-size: 0.875rem;
+  }
+
+  .segmentedControl {
+    font-size: 0.75rem;
+  }
+
+  .segmentedControl span {
+    font-size: 0.75rem;
+  }
+
+  .segmentedControl .mantine-SegmentedControl-label {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-height: 48em) {
+  .container {
+    overflow: auto;
+    padding-top: 0;
+  }
+}

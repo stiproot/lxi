@@ -1,0 +1,17 @@
+# Install these with regular pip install -r requirements.txt
+fastapi
+dapr-ext-fastapi-dev
+uvicorn
+requests
+environs
+typing-extensions
+httpx
+langchain>=0.0.340
+langchain-core>=0.1.9
+langgraph>=0.3.1
+
+# Custom packages (configure alternative sources via .env if needed)
+agntsmth-core==0.2.0
+
+# Fix for protobuf compatibility issue
+protobuf==3.20.3

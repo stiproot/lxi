@@ -1,0 +1,9 @@
+fastapi
+dapr-ext-fastapi-dev
+dapr>=1.13.0a,<1.14.0
+uvicorn
+requests
+environs
+typing-extensions
+httpx
+aiohttp==3.9.0b0

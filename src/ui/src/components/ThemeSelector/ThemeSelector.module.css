@@ -1,0 +1,55 @@
+.root {
+  position: relative;
+  background-color: var(--mantine-color-gray-0);
+  background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8));
+  width: 90%;
+  border-radius: 20px;
+  padding: 5px;
+  gap: 8px;
+  border: 1px solid var(--mantine-color-gray-2);
+  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-4));
+  display: flex;
+  justify-content: space-between;
+}
+
+.control {
+  padding: 7px 12px;
+  line-height: 1;
+  color: var(--mantine-color-gray-7);
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-dark-2));
+  border-radius: 15px;
+  font-size: var(--mantine-font-size-sm);
+  transition: color 100ms ease, background-color 100ms ease;
+  font-weight: 500;
+  width: 50%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    color: var(--mantine-color-black);
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    background-color: var(--mantine-color-gray-1);
+    background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-7));
+  }
+
+  &[data-active] {
+    color: var(--mantine-color-white);
+    background-color: var(--mantine-primary-color-filled);
+  }
+}
+
+.controlLabel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.indicator {
+  background-color: var(--mantine-primary-color-filled);
+  border-radius: 15px;
+  transition: transform 100ms ease;
+}

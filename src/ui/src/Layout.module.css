@@ -1,0 +1,161 @@
+:root {
+  --icon-color: #36454f; /* Default icon color for light mode */
+  --avatar-color: #36454f; /* Default avatar color for light mode */
+  --logo-color: #36454f; /* Default logo color for light mode */
+  --ai-reposose-logo-color: #969bbb;
+  --app-logo-color: #36454f;
+}
+
+[data-theme='dark'] {
+  --icon-color: #f0f4f8; /* Icon color for dark mode */
+  --avatar-color: #f0f4f8; /* Avatar color for dark mode */
+  --logo-color: #f0f4f8; /* Logo color for dark mode */
+  --ai-reposose-logo-color: #9a839d;
+  --app-logo-color: #f0f4f8;
+}
+
+.main {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 0px;
+}
+
+.headerGroup {
+  width: 100%;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoMobile {
+  display: none;
+}
+
+.hoverArea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 100%;
+  z-index: 1000;
+}
+
+.bottomIcon {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  color: var(--icon-color);
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+}
+
+.bottomIcon:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+.footerIcons {
+  position: fixed;
+  bottom: 4px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 50;
+  opacity: 1;
+}
+
+.logoIcon {
+  color: var(--app-logo-color);
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+
+.logoIcon:hover {
+  opacity: 1;
+}
+
+.drawerLogo {
+  height: 40px;
+  width: 40px;
+}
+
+.stationaryLogo {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 1001;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.stationaryLogo:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.avatar {
+  color: var(--avatar-color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+.newChatButton,
+.addParticipantButton {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.newChatButton:hover,
+.addParticipantButton:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+@media (max-width: 1200px) {
+  .main {
+    padding-top: 64px;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerGroup {
+    justify-content: space-between;
+    padding: 0 8px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .avatar {
+    position: static;
+  }
+
+  .themeToggleGroup {
+    position: absolute;
+    right: 0px;
+    gap: 8px;
+  }
+
+  .bottomIcon {
+    /* Adjust positioning for smaller screens if necessary */
+    left: 8px;
+    bottom: 12px;
+  }
+
+  .logoIcon {
+    right: 8px;
+    bottom: 12px;
+  }
+}

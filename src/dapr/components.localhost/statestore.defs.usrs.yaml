@@ -1,0 +1,21 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: statestore-usrs
+scopes:
+  - lxi-ui-api
+spec:
+  type: state.mongodb
+  version: v1
+  initTimeout: 5m
+  metadata:
+  - name: host
+    value: "localhost:27017"
+  - name: databaseName
+    value: "lxi"
+  - name: collectionName
+    value: "usrs"
+  - name: keyPrefix
+    value: "none"
+  - name: params
+    value: "?authSource=admin&replicaSet=rs0&directConnection=true"

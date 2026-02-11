@@ -1,0 +1,25 @@
+.dateSeparator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+.dateSeparator::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 50%;
+  height: 1px;
+  z-index: 1;
+}
+
+.dateSeparator > span {
+  position: relative;
+  z-index: 2;
+  background: var(--mantine-color-body);
+  padding: 0 1rem;
+}

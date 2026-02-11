@@ -1,0 +1,13 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub-cmd-workflows
+scopes:
+  - lxi-workflows-api
+spec:
+  type: pubsub.rabbitmq
+  version: v1
+  initTimeout: 30s
+  metadata:
+    - name: connectionString
+      value: amqp://rabbitmq-lxi:5672

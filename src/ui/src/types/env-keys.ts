@@ -1,0 +1,6 @@
+// src/types/env-keys.ts
+export enum EnvKeys {
+  VITE_UI_API_BASE_URL = 'VITE_UI_API_BASE_URL',
+  VITE_OKTA_CLIENT_ID = 'VITE_OKTA_CLIENT_ID',
+  VITE_OKTA_ISSUER = 'VITE_OKTA_ISSUER',
+}

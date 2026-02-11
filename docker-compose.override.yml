@@ -1,0 +1,22 @@
+x-build: &buildArgs
+  build:
+    args:
+    - CONFIGURATION=Debug
+  environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+
+services:
+  lxi-ui-api:
+    <<: *buildArgs
+
+  lxi-ui:
+    <<: *buildArgs
+    build:
+      context: ./src/ui
+      dockerfile: Dockerfile.dev
+      tags:
+        - ghcr.io/lxi/ui:dev
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./src/ui/node_modules:/app/node_modules

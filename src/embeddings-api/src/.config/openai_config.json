@@ -1,0 +1,10 @@
+{
+  "deployment_name": "gpt-4o",
+  "model_name": "gpt-4o",
+  "openai_api_type": "azure",
+  "openai_api_key": "",
+  "openai_api_version": "2024-02-15-preview",
+  "azure_endpoint": "",
+  "tiktoken_model_name": "gpt-4o",
+  "temperature": 0.1
+}
